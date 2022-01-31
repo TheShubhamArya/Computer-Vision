@@ -82,9 +82,3 @@ if __name__ == '__main__':
 #    extract_patch(img,2)
 #    resize_img(img,0.5)
     color_jitter(img, 0.4, 0.5, 0.3)
-    
-#    if len(sys.argv) != 5:
-#        print("Error: Incorrect format!\nThe run command is: python3 change_hsv.py [filename] [hue value] [saturation value] [value modification]")
-#    else:
-#        args = sys.argv
-#        color_spaces(args[1], float(args[2]), float(args[3]), float(args[4]))
