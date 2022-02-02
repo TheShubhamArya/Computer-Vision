@@ -10,39 +10,17 @@ import skimage.io as io
 import skimage.color as color
 from skimage import transform
 
-# generates random square crops of an image with the image and size of the cropped image given
-def random_crop(img, size):
-    img_size = img.shape
-    min_dimension = min(img_size[0], img_size[1])
-    if size <= min_dimension:
-        x = random.randint(0, img_size[0] - size)
-        y = random.randint(0, img_size[1] - size)
-        x2 = x + size
-        y2 = y + size
-        img_crop = img[x:x2, y:y2]
-        return img_crop
-#        io.imsave('crop_image.jpeg', img_crop)
-#        print("Cropped image has been added to the folder.")
-    else:
-        print("crop size is bigger than the image")
+# function tat returns the resized image
+def get_resized_img(img, new_row, new_col):
+    # Create a new array with those dimensions
+    new_img = np.zeros([new_row,new_col,img.shape[2]])
     
-# Generates n^2 patches of an image with the size n.
-def extract_patch(img, num_patches):
-    size = num_patches
-    img = img
-    img_size = img.shape
-    if img_size[0] != img_size[1]:
-        min_dimension = min(img_size[0], img_size[1])
-        img = random_crop(img,min_dimension)
-    H,W = img.shape[0], img.shape[1]
-    rows, cols = size,size
-    patchSize = img.shape[0]//size
-    for i in range(rows):
-        for j in range(cols):
-            new_image = img[i*patchSize:patchSize*(i+1), j*patchSize:(j+1)*patchSize]
-            filename = "patch"+str(i)+str(j)+".jpeg"
-            io.imsave(filename, new_image)
-    print("Image patches added to the folder")
+    # loop through pixel in the new array
+    for i in range(new_row):
+        for j in range(new_col):
+            new_img[i][j] = img[int(i*2)][int(j*2)]
+    
+    return new_img
     
 # resize image with the given factor
 def resize_img(img, height):
@@ -51,14 +29,15 @@ def resize_img(img, height):
     factor = 1
     while h < height:
         shape = img.shape
-        image_resized = transform.resize(img, [shape[0]//2, shape[1]//2,3],anti_aliasing=True)
-        factor = factor*2
-        filename = "img_x"+str(factor)+".jpeg"
+        image_resized = get_resized_img(img, shape[0]//2, shape[1]//2)
+#        image_resized = transform.resize(img, [shape[0]//2, shape[1]//2,3],anti_aliasing=True)
+        factor *= 2
+        filename = "img_x"+str(factor)+".png"
         io.imsave(filename, image_resized)
         print("Resized image saved to folder as ",filename)
         img = image_resized
         h += 1
     
 if __name__ == '__main__':
-    img = io.imread("img.jpeg")
-    resize_img(img, 4)
+    img = io.imread("img.png")
+    resize_img(img, 5)
