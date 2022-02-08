@@ -3,3 +3,6 @@ This repository contains my work for CSE 4310 Computer Vision course in Spring 2
 
 ## Assignment 1
 This assignment covers image processing including changing color spaces and basic image transformations.
+
+## Bilinear interpolation
+A sampling technique that uses neighboring pixel values when resizing an image to give a smoother effect. 
