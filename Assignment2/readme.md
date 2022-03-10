@@ -9,3 +9,10 @@ This assignment required us to stitch multiple images together by:
 ## Requirements
 This assignment uses OpenCV, Matplotlib, and Numpy libraries to perform the core functionalities. 
 For this assignment, I did not create my own SIFT keypoint detection algorithm or warping algorithm. Instead, I used the functions provided by OpenCV to do this.
+
+Another important requirement for successful stitching of images is that the images should be appended in order, that is, the image that appears on the left should be appended first followed by the rest. 
+
+## Run Command
+python3 stitch_images.py
+
+In the stitch_images.py, enter the file path of the images as a string.
