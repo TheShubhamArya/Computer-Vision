@@ -33,10 +33,11 @@ From all the keypoints that we got in the two images, we match the keypoints tha
 <img width="572" alt="Screen Shot 2022-03-10 at 6 54 39 PM" src="https://user-images.githubusercontent.com/60827845/157780805-9fbd88d2-8479-4bf3-8fc6-f884c1acdd3f.png">
 
 ## 3. RANSAC
-RANSAC randomly selects a number of keypoints between the two images, then finds the line that fits these points and checks how many points fall on or near the line. This is repeated for a number of times which can be changed,
+RANSAC randomly selects a number of keypoints between the two images, then finds the line that fits these points and checks how many points fall on or near the line. This is repeated for a number of times which is user depended. The more iterations we have, the more number of combinations we can explore to find the best fit. However, more iterations also mean that it will take longer to find the best model.
 <img width="569" alt="Screen Shot 2022-03-10 at 6 55 46 PM" src="https://user-images.githubusercontent.com/60827845/157780928-f79b090f-3c6a-4c4f-b802-3b628d933b0f.png">
 
 ## 4. Warping Images
+Images are warped using affine and projective transformation which change the shape, orientation, and size of the image to join 2 images. 
 
 ## 5. Image Stitching
 <img width="559" alt="Screen Shot 2022-03-10 at 6 56 40 PM" src="https://user-images.githubusercontent.com/60827845/157781027-16fd430f-d03e-4889-b87e-b2816ef204dd.png">
