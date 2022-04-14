@@ -25,3 +25,5 @@ This concept is then applied over multiple frames to give the following result.
 
 https://user-images.githubusercontent.com/60827845/163309340-6ed512fd-b652-4a29-b264-bce5156c3969.mov
 
+## Kalman Filter
+Kalman filter is a way for us to find predict location of an object and then update the prediction once we know where the object. After multiple predictions and update to the filter, we will see that our predictions get better at finding the location of the object. We can filter out objects if the difference between predicted coordinates aand the updated coordinates is larger than some arbitary value.
