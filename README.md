@@ -10,5 +10,8 @@ This assignment covers **image stitching** using **SIFT, RANSAC, and warping ima
 ## Assignment 3
 This assignment covers **object detection** using **Kalman Filters**. 
 
+## Assignment 4
+This assignment is over all convolution net, convolutional neural networks, transfer learning and regularization using pytorch.
+
 ## Bilinear interpolation
 A sampling technique that uses neighboring pixel values when resizing an image to give a smoother effect. 
